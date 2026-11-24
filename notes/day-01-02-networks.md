@@ -4,11 +4,11 @@
 - Data Link (Src MAC: Intel_c8:70:b2 (40:c7:3c:c8:70:b2)/ Dst MAC: HuaweiTechno_4f:6b:bb (14:a0:f8:4f:6b:bb):
 - Network (Src IP: 192.168.100.5 / Dst IP: 3.174.18.103):
 - Transport (protocol: TCP / Source Port: 55752 Destination Port: 443):
-- Presentation/Application: http запрос
+- Presentation/Application: HTTPS/HTTP внутри TLS
 
 ## 2. What changes hop by hop
-- IP address: Dst IP: 3.174.18.103
-- MAC address: Dst MAC: HuaweiTechno_4f:6b:bb (14:a0:f8:4f:6b:bb
+- IP address: не меняется, остаётся 3.174.18.103 до конца
+- MAC address: меняется на каждом участке, на первом участке это MAC шлюза
 - Why: Dst MAC меняется потому что запрос к другой сети, MAC не может узнать адрес другого компютера посредством ARP запроса, поэтому отправляет кадр на router и он к следующему.
 
 ## 3. My network
