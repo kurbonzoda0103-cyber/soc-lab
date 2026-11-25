@@ -8,7 +8,7 @@
 - RTT in my capture: это время туда обратно в 395ms
 
 ## traceroute
-- How it works (TTL 1, 2, 3... and Time Exceeded Type 11):- tracert сначала шлёт пакет с TTL = 128, затем с TTL вычитает 1 каждый роутер и так далее. Роутер, на котором TTL становится 0, выбрасывает пакет и присылает записку (Type 11), так я узнаю его адрес.
+- How it works (TTL 1, 2, 3... and Time Exceeded Type 11):- tracert сначала шлёт пакет с TTL = 1, затем с TTL = 2, затем 3 и так далее. Роутер, на котором TTL становится 0, выбрасывает пакет и присылает записку (Type 11), так я узнаю его адрес.
 - My route to 8.8.8.8: 
  hops -10  
  first hop- default gateway 
