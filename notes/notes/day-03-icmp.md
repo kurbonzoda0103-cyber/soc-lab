@@ -1,19 +1,19 @@
 # Day 3: ICMP, ping, traceroute
 
 ## ping
-- Echo Request (Type 8) - это запрос есть ли сигнал от роутера
-- Echo Reply (Type 0): - это ответ что есть сигнал
-- TTL: Request 128 - это начала связывания и каждый роутер отнимает 1 и оставляет записку
-- Reply 117 -  означает столько роутеров прошла
+- Echo Request (Type 8) - это запрос к к целевому устройству
+- Echo Reply (Type 0): - это ответ что есть сигнал от целевого устройства
+- TTL: Request 128 - это стартовое значение счетчика на пакете
+- Reply 117 -  означает столько значений осталось и прошла только 10 роутеров
 - RTT in my capture: это время туда обратно в ms
 
 ## traceroute
-- How it works (TTL 1, 2, 3... and Time Exceeded Type 11):- команда tracert на windows показывает сколько роутеров подключается пока доходит до сервера и записка от каждого роутера и код 11 означает записку
+- How it works (TTL 1, 2, 3... and Time Exceeded Type 11):- команда tracert на windows показывает сколько роутеров подключается пока доходит до сервера и код 11 означает записку. Каждый роутер на своем шаге вычитывает 1 и пропускает дальше
 - My route to 8.8.8.8: 
  hops -10  
  first hop- default gateway 
  where time grows: на 5 уровне начинает расти ping
-- What * means:
+- What * means: что все рядом роутера получает сигнал нормально а дальше на уровне там страны, провайдера проблемы
 
 ## ICMP vs TCP/UDP
 - Why ICMP has no ports: потому что он для диагностики сети а не для отправки медиа
@@ -22,10 +22,10 @@
 - Why no ping reply does not mean host is down: Потому что марщрутизатор может иногда отклонить ICMP запрос
 
 ## Glossary
-- ICMP - Internet Control Message Protokol служебный протокол диагностики сети
+- ICMP - Internet Control Message Protoсol служебный протокол диагностики сети
 Echo Request - запрос с кодом 8
 Echo Reply - ответ с кодом 0
 TTL - Time to Live время жизни запроса
 RTT - туда обратно
-hop - следующий прыжок имеется ввиду от роутеру к другому 
+hop - прыжок, имеется ввиду от роутеру к другому 
 Time Exceeded - записка от роутера
