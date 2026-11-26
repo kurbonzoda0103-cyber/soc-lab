@@ -1,16 +1,16 @@
 # Day 4: Routing table and subnetting
 
 ## Recap Day 3
-- Why tracert starts from TTL = 1: - чтобы первый роутер сбрасывал значение один и отправил записку, так можно понять ip роутера
+- Why tracert starts from TTL = 1: первый роутер вычитает 1, получается 0, выбрасывает пакет и присылает Time Exceeded.
 
 ## Routing table (route print -4)
-- Default route (0.0.0.0 0.0.0.0): gateway and meaning: это все что не в моей сети или не подошло шлет туда а zero означает любую другую
+- Default route (0.0.0.0 0.0.0.0): gateway and meaning: мой gateway: 192.168.100.1 это все что не в моей сети или не подошло шлет туда а zero означает любую другую
 - Row of my own network (On-link) means: все что в моей сети отправляется напрмямую
 - If several rows match, which one is chosen: выбирается самая длинная маска
 
 ## Subnetting 192.168.1.0/24 into 4 subnets
 - How many bits borrowed and why 4 subnets: два бита потому что каждое увеличение префикса забирает 1 бит, а один бит это два куска
-- Hosts formula: for example 2⁶ = 64 адреса, минус 2 = 62
+- Hosts formula: 2^(хостовые биты) − 2
 - Table: on bottom
   Подсеть | Префикс         | Маска |     Адрес сети |  Диапазон хостов | Broadcast |  Хостов
 1.  192.168.1.0 /26      255.255.255.192  192.168.1.0    1-62           192.168.1.63    62
@@ -23,12 +23,12 @@
 - 192.168.1.200 is in subnet № 4 because: потому цифры хоста в диапазоне 4 подсети
 
 ## Glossary
-- routing table - таблица маршрутов, по ней устройства решает куда слать пакет
+routing table - таблица маршрутов, по ней устройства решает куда слать пакет
 default route - маршрут с нулями, чтобы выйти в интернет
-next hop - следующий шаг или прыжок
-On-link - в одной сети
-subnet - подсеть, часть одной большой подсети
+next hop - usually router
+On-link - напрямую, without router
+subnet - подсеть, часть большой подсети
 subnetting - разделение большой сети на подсети для удобства и безапасности
-network address - адрес сети 
+network address - первый адрес подсети (все хостовые биты нули)
 broadcast address - широковещательный адрес для всех
-block size - размер блока
+block size - сколько адресов в подсети
