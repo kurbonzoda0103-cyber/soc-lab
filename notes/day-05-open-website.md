@@ -5,11 +5,11 @@
 2. TCP handshake: таблица
 
 | Packet | Flags | Who sends   | Seq/Ack    |
-  1       SYN      client      seq=1 ack=0 
-  2       syn-ack  server      seq=1 ack=1
+  1       SYN      client      seq=0 ack=0 
+  2       syn-ack  server      seq=0 ack=1
   3       ack      client      seq=1 ack=1
 
-3. Дальше (HTTPS): после handshake подкючение по TCL протоколу
+3. Дальше (HTTPS): после handshake идет http внутри TLS
 
 ## Evidence
 - captures/day5_dns.pcapng: результаты захвата трафика по теме dns на домене example.com, указаны DNS request and DNS response
@@ -24,4 +24,10 @@ SYN - запрос ты слышишь?
 ACK - ответ да
 RTT - время туда обратно syn, syn-ack,ack в ms
 TCP -Transmission Control Protocol - протокол отправки которая отправляет и ждет успешного потверждения, пока не добьется подключения, UDP - User Datagram Protocol - протокол без гарантии доставки пакетов
+
+Мои ошибки которые я понял:
+порядок TTL в traceroute (Day 3–4)
+Seq/Ack (сегодня)
+TCL против TLS 
+DNS выдаёт по ip
 
