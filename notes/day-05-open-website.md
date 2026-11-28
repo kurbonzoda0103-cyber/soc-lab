@@ -25,9 +25,3 @@ ACK - ответ да
 RTT - время туда обратно syn, syn-ack,ack в ms
 TCP -Transmission Control Protocol - протокол отправки которая отправляет и ждет успешного потверждения, пока не добьется подключения, UDP - User Datagram Protocol - протокол без гарантии доставки пакетов
 
-Мои ошибки которые я понял:
-порядок TTL в traceroute (Day 3–4)
-Seq/Ack (сегодня)
-TCL против TLS 
-DNS выдаёт по ip
-
