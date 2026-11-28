@@ -4,10 +4,10 @@
 1. DNS: send request, IP:fe80::1, port: 53, Protocol: UDP, получил ответ example.com: type HTTPS, class IN и IP: 104.20.23.154 и 172.66.147.243
 2. TCP handshake: таблица
 
-| Packet | Flags | Who sends   | Seq/Ack    |
-  1       SYN      client      seq=0 ack=0 
-  2       syn-ack  server      seq=0 ack=1
-  3       ack      client      seq=1 ack=1
+| Packet | Flags   | Who sends | Seq/Ack    |
+  1      | SYN     | client    | seq=0 ack=0 
+  2      | syn-ack | server    | seq=0 ack=1
+  3      | ack     | client    | seq=1 ack=1
 
 3. Дальше (HTTPS): после handshake идет http внутри TLS
 
